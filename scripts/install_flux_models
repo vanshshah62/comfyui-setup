@@ -9,3 +9,6 @@ huggingface-cli download comfyanonymous/flux_text_encoders t5xxl_fp16.safetensor
 huggingface-cli download Comfy-Org/Lumina_Image_2.0_Repackaged split_files/vae/ae.safetensors --local-dir models/vae
 mv models/vae/split_files/vae/ae.safetensors models/vae/
 rm -rf models/vae/split_files
+
+# Download upscaler model
+huggingface-cli download gemasai/4x_NMKD-Siax_200k 4x_NMKD-Siax_200k.pth --local-dir models/upscale_models
