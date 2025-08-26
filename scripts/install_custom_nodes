@@ -4,6 +4,10 @@ set -euo pipefail
 # 3. Install Wan2.2 Extensions
 cd /workspace/ComfyUI/custom_nodes
 
+
+git clone https://github.com/crystian/ComfyUI-Crystools.git
+cd ComfyUI-Crystools && pip install -r requirements.txt && cd ..
+
 # Video Helper Suite
 git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
 cd ComfyUI-VideoHelperSuite && pip install -r requirements.txt && cd ..
@@ -18,8 +22,5 @@ cd rgthree-comfy && pip install -r requirements.txt && cd ..
 
 git clone https://github.com/gseth/ControlAltAI-Nodes.git
 cd ControlAltAI-Nodes && pip install -r requirements.txt && cd ..
-
-git clone https://github.com/crystian/ComfyUI-Crystools.git
-cd ComfyUI-Crystools && pip install -r requirements.txt && cd ..
 
 cd /workspace/ComfyUI
