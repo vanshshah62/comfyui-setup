@@ -1,0 +1,1 @@
+chmod +x scripts/* && ./scripts/basic_setup && ./scripts/install_custom_nodes && ./scripts/install_loras && ./scripts/install_flux_models && ./scripts/start

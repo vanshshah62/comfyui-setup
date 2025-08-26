@@ -11,5 +11,4 @@ mv models/vae/split_files/vae/ae.safetensors models/vae/
 rm -rf models/vae/split_files
 
 # Download upscaler models
-huggingface-cli download gemasai/4x_NMKD-Siax_200k 4x_NMKD-Siax_200k.pth --local-dir models/upscale_models
 huggingface-cli download lllyasviel/Annotators RealESRGAN_x4plus.pth --local-dir models/upscale_models
