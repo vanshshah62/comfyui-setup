@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Resolve repository root relative to this script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+SRC_WORKFLOWS_DIR="$REPO_ROOT/workflows"
+
+# Ensure ComfyUI is the working directory
 cd /workspace/ComfyUI
+
+# Sync workflows from repo to ComfyUI user directory
+DEST_DIR="/workspace/ComfyUI/user/default/workflows"
+mkdir -p "$DEST_DIR"
+# Recursively copy (overwrite) all contents from local workflows if it exists
+if [ -d "$SRC_WORKFLOWS_DIR" ]; then
+  cp -a "$SRC_WORKFLOWS_DIR"/. "$DEST_DIR"/
+fi
+
+# Stop caddy if running
 pkill -f caddy || true
+
+# Start ComfyUI
 python main.py --listen 0.0.0.0 --port 8384
