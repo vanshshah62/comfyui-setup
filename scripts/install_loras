@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Ensure ComfyUI is the working directory
+cd /workspace/ComfyUI
+
+# Create loras directory if it doesn't exist
+mkdir -p models/loras
+cd models/loras
+
+echo "Downloading realistic_skin_flux_lora..."
+curl -H "Authorization: Bearer 9f15c482743194cd737ed265cc7da4ba" \
+     -L -J -o realistic_skin_flux_lora.safetensors \
+     "https://civitai.com/api/download/models/1081450?type=Model&format=SafeTensor"
+
+echo "Downloading image_detailer_flux_lora..."
+curl -H "Authorization: Bearer 9f15c482743194cd737ed265cc7da4ba" \
+     -L -J -o image_detailer_flux_lora.safetensors \
+     "https://civitai.com/api/download/models/984672?type=Model&format=SafeTensor"
+
+echo "Downloading cinematic_flux_lora..."
+curl -H "Authorization: Bearer 9f15c482743194cd737ed265cc7da4ba" \
+     -L -J -o cinematic_flux_lora.safetensors \
+     "https://civitai.com/api/download/models/857668?type=Model&format=SafeTensor"
+
+echo "All loras downloaded successfully!"
+ls -la *.safetensors
+cd /workspace/ComfyUI

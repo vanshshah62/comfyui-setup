@@ -1,1 +1,1 @@
-# comfyui-setup
+cd /c

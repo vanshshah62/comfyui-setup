@@ -1,205 +1,9 @@
 {
   "id": "908d0bfb-e192-4627-9b57-147496e6e2dd",
   "revision": 0,
-  "last_node_id": 57,
-  "last_link_id": 83,
+  "last_node_id": 59,
+  "last_link_id": 87,
   "nodes": [
-    {
-      "id": 38,
-      "type": "UNETLoader",
-      "pos": [
-        -1038.2257080078125,
-        -77.53966522216797
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            61
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "UNETLoader",
-        "models": [
-          {
-            "name": "flux1-dev.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev.safetensors",
-            "directory": "diffusion_models"
-          }
-        ]
-      },
-      "widgets_values": [
-        "flux1-dev-fp8.safetensors",
-        "default"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 40,
-      "type": "DualCLIPLoader",
-      "pos": [
-        -1044.4981689453125,
-        63.56809616088867
-      ],
-      "size": [
-        270,
-        130
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            67
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "DualCLIPLoader",
-        "models": [
-          {
-            "name": "clip_l.safetensors",
-            "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
-            "directory": "text_encoders"
-          },
-          {
-            "name": "t5xxl_fp16.safetensors",
-            "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors",
-            "directory": "text_encoders"
-          }
-        ]
-      },
-      "widgets_values": [
-        "clip_l.safetensors",
-        "t5xxl_fp16.safetensors",
-        "flux",
-        "default"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 39,
-      "type": "VAELoader",
-      "pos": [
-        -1044.7099609375,
-        247.55120849609375
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            58
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "VAELoader",
-        "models": [
-          {
-            "name": "ae.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors",
-            "directory": "vae"
-          }
-        ]
-      },
-      "widgets_values": [
-        "ae.safetensors"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
-      "id": 31,
-      "type": "KSampler",
-      "pos": [
-        76.33436584472656,
-        -113.17719268798828
-      ],
-      "size": [
-        383.0083923339844,
-        391.2025146484375
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 61
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 68
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 73
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 51
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "slot_index": 0,
-          "links": [
-            52
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        641635643585890,
-        "fixed",
-        20,
-        1,
-        "euler",
-        "simple",
-        1
-      ]
-    },
     {
       "id": 48,
       "type": "ConditioningZeroOut",
@@ -238,100 +42,6 @@
       "widgets_values": []
     },
     {
-      "id": 46,
-      "type": "FluxGuidance",
-      "pos": [
-        -251.90109252929688,
-        -39.751121520996094
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 65
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            68
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.51",
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ]
-    },
-    {
-      "id": 27,
-      "type": "EmptySD3LatentImage",
-      "pos": [
-        -649.9089965820312,
-        325.80145263671875
-      ],
-      "size": [
-        270,
-        120
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "widget": {
-            "name": "width"
-          },
-          "link": 75
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "widget": {
-            "name": "height"
-          },
-          "link": 76
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "slot_index": 0,
-          "links": [
-            51
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.40",
-        "Node name for S&R": "EmptySD3LatentImage"
-      },
-      "widgets_values": [
-        512,
-        512,
-        1
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
       "id": 51,
       "type": "ImageUpscaleWithModel",
       "pos": [
@@ -344,7 +54,7 @@
       ],
       "flags": {},
       "order": 11,
-      "mode": 0,
+      "mode": 4,
       "inputs": [
         {
           "name": "upscale_model",
@@ -431,8 +141,8 @@
         58
       ],
       "flags": {},
-      "order": 3,
-      "mode": 0,
+      "order": 0,
+      "mode": 4,
       "inputs": [],
       "outputs": [
         {
@@ -453,35 +163,6 @@
       ]
     },
     {
-      "id": 56,
-      "type": "PreviewImage",
-      "pos": [
-        1478.3695068359375,
-        -123.33422088623047
-      ],
-      "size": [
-        588.3504638671875,
-        537.2606811523438
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 82
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.51",
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 53,
       "type": "ImageScaleBy",
       "pos": [
@@ -494,7 +175,7 @@
       ],
       "flags": {},
       "order": 13,
-      "mode": 0,
+      "mode": 4,
       "inputs": [
         {
           "name": "image",
@@ -522,105 +203,175 @@
       ]
     },
     {
-      "id": 50,
-      "type": "FluxResolutionNode",
+      "id": 38,
+      "type": "UNETLoader",
       "pos": [
-        -972.2841186523438,
-        386.423583984375
+        -1038.2257080078125,
+        -77.53966522216797
       ],
       "size": [
-        274.724609375,
-        214
+        270,
+        82
       ],
       "flags": {},
-      "order": 4,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "width",
-          "type": "INT",
+          "name": "MODEL",
+          "type": "MODEL",
           "links": [
-            75
-          ]
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            76
-          ]
-        },
-        {
-          "name": "resolution",
-          "type": "STRING",
-          "links": null
-        },
-        {
-          "name": "preview",
-          "type": "IMAGE",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "controlaltai-nodes",
-        "ver": "721492b66c9cede8ae23ae10615462ad80cfd061",
-        "Node name for S&R": "FluxResolutionNode"
-      },
-      "widgets_values": [
-        "0.5",
-        "16:9 (Panorama)",
-        "64",
-        false,
-        "1:1"
-      ]
-    },
-    {
-      "id": 45,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -705.252197265625,
-        -72.55636596679688
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 67
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            65,
-            72
+            84
           ]
         }
       ],
       "properties": {
         "cnr_id": "comfy-core",
-        "ver": "0.3.51",
-        "Node name for S&R": "CLIPTextEncode"
+        "ver": "0.3.40",
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "flux1-dev.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
       },
       "widgets_values": [
-        "“Lord Shiva, divine and majestic, carrying a massive mountain effortlessly with one hand, glowing aura of blue and white energy surrounding him, crescent moon on his hair, Ganga flowing from his locks, third eye glowing with divine power, tiger skin draped around his waist, dramatic night sky filled with stars and lightning, mountain peaks and mist in the background, epic scale, hyper-detailed, ultra-realistic, 8k resolution, cinematic lighting, godly atmosphere, fantasy concept art.”"
-      ]
+        "flux1-dev.safetensors",
+        "default"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 40,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -1044.4981689453125,
+        63.56809616088867
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            86
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "DualCLIPLoader",
+        "models": [
+          {
+            "name": "clip_l.safetensors",
+            "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
+            "directory": "text_encoders"
+          },
+          {
+            "name": "t5xxl_fp16.safetensors",
+            "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5xxl_fp16.safetensors",
+        "flux",
+        "default"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 39,
+      "type": "VAELoader",
+      "pos": [
+        -1044.7099609375,
+        247.55120849609375
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            58
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "ae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 56,
+      "type": "PreviewImage",
+      "pos": [
+        1478.3695068359375,
+        -123.33422088623047
+      ],
+      "size": [
+        588.3504638671875,
+        537.2606811523438
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 82
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.51",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
     },
     {
       "id": 57,
       "type": "PreviewImage",
       "pos": [
-        762.2931518554688,
-        77.46565246582031
+        808.3251342773438,
+        41.846046447753906
       ],
       "size": [
         550.9005126953125,
@@ -643,6 +394,265 @@
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": []
+    },
+    {
+      "id": 27,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        -649.9089965820312,
+        325.80145263671875
+      ],
+      "size": [
+        270,
+        120
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 46,
+      "type": "FluxGuidance",
+      "pos": [
+        -257.624755859375,
+        -32.18644332885742
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 65
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.51",
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        3.5
+      ]
+    },
+    {
+      "id": 45,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -705.252197265625,
+        -72.55636596679688
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            65,
+            72
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.51",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Cinematic ultra-realistic portrait of Lord Shiva, seated in deep meditation on the snowy peak of Mount Kailash, eyes closed, powerful muscular divine body covered in sacred ash and snow, harsh rugged skin texture, glowing radiant third eye on forehead, long matted hair tied in a topknot with crescent moon and the flowing river Ganga, a massive cobra coiled around his neck with hood expanded, sacred rudraksha beads and tiger skin around his waist, a towering divine Trishul planted firmly beside him glowing with mystical energy, surrounded by a radiant blue aura, snowstorm swirling around, majestic Himalayan peaks in the background, cinematic HDR lighting, epic divine atmosphere, sharp focus, ultra realism, movie still, godlike presence, perfect hand, detailed hand, hand, perfect fingers\n"
+      ]
+    },
+    {
+      "id": 59,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        -645.372314453125,
+        -418.6587829589844
+      ],
+      "size": [
+        324.8211669921875,
+        262
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 84
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 86
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            85
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": [
+            87
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "dbc5fa5e89b6a8b6a1a1dda787505b690f18026c",
+        "Show Strengths": "Single Strength",
+        "aux_id": "rgthree/rgthree-comfy"
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "realistic_skin.safetensors",
+          "strength": 0.6,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "cinematic_lora.safetensors",
+          "strength": 0.4,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "image_upgrade.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ]
+    },
+    {
+      "id": 31,
+      "type": "KSampler",
+      "pos": [
+        83.19279479980469,
+        111.67259216308594
+      ],
+      "size": [
+        383.0083923339844,
+        391.2025146484375
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 85
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 68
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 73
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 51
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        314840354620338,
+        "fixed",
+        20,
+        1,
+        "euler",
+        "simple",
+        1
+      ]
     }
   ],
   "links": [
@@ -671,28 +681,12 @@
       "VAE"
     ],
     [
-      61,
-      38,
-      0,
-      31,
-      0,
-      "MODEL"
-    ],
-    [
       65,
       45,
       0,
       46,
       0,
       "CONDITIONING"
-    ],
-    [
-      67,
-      40,
-      0,
-      45,
-      0,
-      "CLIP"
     ],
     [
       68,
@@ -717,22 +711,6 @@
       31,
       2,
       "CONDITIONING"
-    ],
-    [
-      75,
-      50,
-      0,
-      27,
-      0,
-      "INT"
-    ],
-    [
-      76,
-      50,
-      1,
-      27,
-      1,
-      "INT"
     ],
     [
       77,
@@ -773,19 +751,51 @@
       57,
       0,
       "IMAGE"
+    ],
+    [
+      84,
+      38,
+      0,
+      59,
+      0,
+      "MODEL"
+    ],
+    [
+      85,
+      59,
+      0,
+      31,
+      0,
+      "MODEL"
+    ],
+    [
+      86,
+      40,
+      0,
+      59,
+      1,
+      "CLIP"
+    ],
+    [
+      87,
+      59,
+      1,
+      45,
+      0,
+      "CLIP"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6741279950719972,
+      "scale": 0.7400249944258274,
       "offset": [
-        -253.27986651331784,
-        488.39241784720343
+        857.0262023348613,
+        427.2610399394749
       ]
     },
-    "frontendVersion": "1.25.9",
+    "frontendVersion": "1.25.10",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
