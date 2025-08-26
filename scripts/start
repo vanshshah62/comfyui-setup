@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd /workspace/ComfyUI
+pkill -f caddy || true
+python main.py --listen 0.0.0.0 --port 8384

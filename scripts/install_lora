@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Usage: ./scripts/install_lora <name_without_extension> <download_url>
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <name_without_extension> <download_url>" >&2
+  exit 1
+fi
+
+NAME="$1"
+URL="$2"
+
+TARGET_DIR="/workspace/ComfyUI/models/loras"
+mkdir -p "$TARGET_DIR"
+cd "$TARGET_DIR"
+
+# Download using curl with redirect handling and auth header
+curl -H "Authorization: Bearer 9f15c482743194cd737ed265cc7da4ba" \
+     -L -J -o "${NAME}.safetensors" \
+     "$URL"
+
+echo "Saved: ${TARGET_DIR}/${NAME}.safetensors"

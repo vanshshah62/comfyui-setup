@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 3. Install Wan2.2 Extensions
+cd /workspace/ComfyUI/custom_nodes
+
+# Video Helper Suite
+git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
+cd ComfyUI-VideoHelperSuite && pip install -r requirements.txt && cd ..
+
+git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+cd ComfyUI-Manager && pip install -r requirements.txt && cd ..
+
+# Clone the rgthree-comfy extension
+git clone https://github.com/rgthree/rgthree-comfy.git
+cd rgthree-comfy && pip install -r requirements.txt && cd ..
+
+
+git clone https://github.com/gseth/ControlAltAI-Nodes.git
+cd ControlAltAI-Nodes && pip install -r requirements.txt && cd ..
+
+git clone https://github.com/crystian/ComfyUI-Crystools.git
+cd ComfyUI-Crystools && cd ..
+cd /workspace/ComfyUI
