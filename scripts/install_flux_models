@@ -12,3 +12,7 @@ rm -rf models/vae/split_files
 
 # Download upscaler models
 huggingface-cli download lllyasviel/Annotators RealESRGAN_x4plus.pth --local-dir models/upscale_models
+
+# Download ControlNet Union Pro model and rename
+huggingface-cli download Shakker-Labs/FLUX.1-dev-ControlNet-Union-Pro diffusion_pytorch_model.safetensors --local-dir models/controlnet
+mv -f models/controlnet/diffusion_pytorch_model.safetensors models/controlnet/flux_control_net_union.safetensors
