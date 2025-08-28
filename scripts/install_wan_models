@@ -9,12 +9,19 @@ mkdir -p models/diffusion_models models/loras models/vae models/text_encoders
 # -----------------------------
 # Diffusion Models
 # -----------------------------
-# Download
+# Download T2V models
 huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
   split_files/diffusion_models/wan2.2_t2v_high_noise_14B_fp8_scaled.safetensors \
   --local-dir models/diffusion_models
 huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
   split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors \
+  --local-dir models/diffusion_models
+# Download I2V models
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors \
+  --local-dir models/diffusion_models
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors \
   --local-dir models/diffusion_models
 # Move out of split_files if present
 if [ -d "models/diffusion_models/split_files" ]; then
@@ -25,12 +32,19 @@ fi
 # -----------------------------
 # LoRA Models
 # -----------------------------
-# Download
+# Download T2V LoRA models
 huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
   split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors \
   --local-dir models/loras
 huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
   split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors \
+  --local-dir models/loras
+# Download I2V LoRA models
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors \
+  --local-dir models/loras
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors \
   --local-dir models/loras
 # Move out of split_files if present
 if [ -d "models/loras/split_files" ]; then
