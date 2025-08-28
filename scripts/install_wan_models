@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd /workspace/ComfyUI
+
+# Ensure directories exist
+mkdir -p models/diffusion_models models/loras models/vae models/text_encoders
+
+# -----------------------------
+# Diffusion Models
+# -----------------------------
+# Download
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/diffusion_models/wan2.2_t2v_high_noise_14B_fp8_scaled.safetensors \
+  --local-dir models/diffusion_models
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors \
+  --local-dir models/diffusion_models
+# Move out of split_files if present
+if [ -d "models/diffusion_models/split_files" ]; then
+  mv -f models/diffusion_models/split_files/diffusion_models/*.safetensors models/diffusion_models/ 2>/dev/null || true
+  rm -rf models/diffusion_models/split_files
+fi
+
+# -----------------------------
+# LoRA Models
+# -----------------------------
+# Download
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors \
+  --local-dir models/loras
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/loras/wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors \
+  --local-dir models/loras
+# Move out of split_files if present
+if [ -d "models/loras/split_files" ]; then
+  mv -f models/loras/split_files/loras/*.safetensors models/loras/ 2>/dev/null || true
+  rm -rf models/loras/split_files
+fi
+
+# -----------------------------
+# VAE
+# -----------------------------
+# Download
+huggingface-cli download Comfy-Org/Wan_2.2_ComfyUI_Repackaged \
+  split_files/vae/wan_2.1_vae.safetensors \
+  --local-dir models/vae
+# Move out of split_files if present
+if [ -d "models/vae/split_files" ]; then
+  mv -f models/vae/split_files/vae/*.safetensors models/vae/ 2>/dev/null || true
+  rm -rf models/vae/split_files
+fi
+
+# -----------------------------
+# Text Encoder
+# -----------------------------
+# Download
+huggingface-cli download Comfy-Org/Wan_2.1_ComfyUI_repackaged \
+  split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors \
+  --local-dir models/text_encoders
+# Move out of split_files if present
+if [ -d "models/text_encoders/split_files" ]; then
+  mv -f models/text_encoders/split_files/text_encoders/*.safetensors models/text_encoders/ 2>/dev/null || true
+  rm -rf models/text_encoders/split_files
+fi
+
+echo "Wan 2.x models downloaded and organized."
