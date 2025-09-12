@@ -4,7 +4,34 @@ set -euo pipefail
 # Resolve repository root relative to this script
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-SRC_WORKFLOWS_DIR="$REPO_ROOT/workflows"
+
+# Parse command line arguments
+WORKFLOW_TYPE=""
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --image_models)
+      WORKFLOW_TYPE="image_models"
+      shift
+      ;;
+    --video_models)
+      WORKFLOW_TYPE="video_models"
+      shift
+      ;;
+    *)
+      echo "Usage: $0 [--image_models|--video_models]"
+      echo "  --image_models: Copy workflows from workflows/image_models/"
+      echo "  --video_models: Copy workflows from workflows/video_models/"
+      exit 1
+      ;;
+  esac
+done
+
+# Set source workflows directory based on parameter
+if [ -n "$WORKFLOW_TYPE" ]; then
+  SRC_WORKFLOWS_DIR="$REPO_ROOT/workflows/$WORKFLOW_TYPE"
+else
+  SRC_WORKFLOWS_DIR="$REPO_ROOT/workflows"
+fi
 
 # Ensure ComfyUI is the working directory
 cd /workspace/ComfyUI
@@ -12,9 +39,16 @@ cd /workspace/ComfyUI
 # Sync workflows from repo to ComfyUI user directory
 DEST_DIR="/workspace/ComfyUI/user/default/workflows"
 mkdir -p "$DEST_DIR"
-# Recursively copy (overwrite) all contents from local workflows if it exists
+
+# Clear existing workflows first
+rm -rf "$DEST_DIR"/*
+
+# Copy workflows from selected folder if it exists
 if [ -d "$SRC_WORKFLOWS_DIR" ]; then
+  echo "Copying workflows from: $SRC_WORKFLOWS_DIR"
   cp -a "$SRC_WORKFLOWS_DIR"/. "$DEST_DIR"/
+else
+  echo "Warning: Workflow directory $SRC_WORKFLOWS_DIR not found"
 fi
 
 # Stop caddy if running
