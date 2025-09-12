@@ -17,10 +17,15 @@ while [[ $# -gt 0 ]]; do
       WORKFLOW_TYPE="video_models"
       shift
       ;;
+    --all)
+      WORKFLOW_TYPE="all"
+      shift
+      ;;
     *)
-      echo "Usage: $0 [--image_models|--video_models]"
+      echo "Usage: $0 [--image_models|--video_models|--all]"
       echo "  --image_models: Copy workflows from workflows/image_models/"
       echo "  --video_models: Copy workflows from workflows/video_models/"
+      echo "  --all: Copy workflows from workflows/all/"
       exit 1
       ;;
   esac
