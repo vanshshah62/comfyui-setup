@@ -6,6 +6,9 @@ cd /workspace/ComfyUI
 # Ensure directories exist
 mkdir -p models/diffusion_models models/loras models/vae models/text_encoders
 
+# Download upscaler models
+huggingface-cli download lllyasviel/Annotators RealESRGAN_x4plus.pth --local-dir models/upscale_models
+
 # -----------------------------
 # Diffusion Models
 # -----------------------------
