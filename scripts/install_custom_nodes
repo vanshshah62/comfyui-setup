@@ -27,6 +27,10 @@ cd ControlAltAI-Nodes && pip install -r requirements.txt && cd ..
 git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git
 cd comfyui_controlnet_aux && pip install -r requirements.txt && cd ..
 
+# Resolution Master
+git clone https://github.com/Azornes/Comfyui-Resolution-Master.git
+cd Comfyui-Resolution-Master && pip install -r requirements.txt && cd ..
+
 # # Wan 2.2 custom nodes
 # git clone https://github.com/Wan-Video/ComfyUI-Wan2.2.git
 # cd ComfyUI-Wan2.2 && pip install -r requirements.txt && cd ..
